@@ -11,7 +11,7 @@ li {
     border: 2px solid;
 }
 
-.unclicked:hover {
+li:hover {
     background-color: yellow;
 }
 
