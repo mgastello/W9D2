@@ -1,7 +1,9 @@
 const View = require ('./ttt-view.js')
 const Game = require ('../ttt_node/game.js')
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.findElementsByClass('ttt')[0]
-});
+window.View = View
+window.Game = Game
 
+document.addEventListener("DOMContentLoaded", () => {
+  window.container = document.getElementsByClassName('ttt')[0]
+});

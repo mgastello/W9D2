@@ -1,7 +1,7 @@
 class View {
   constructor(game, el) {
-    this.game = game;
-    this.el = el;
+    this.grid = this.setupBoard()
+    window.container.appendChild(this.grid)
   }
 
   setupBoard() {
@@ -10,11 +10,14 @@ class View {
       let li = document.createElement('li')
       grid.appendChild(li)
     }
+    return grid
   }
   
   bindEvents() {}
 
-  handleClick(e) {}
+  handleClick(e) {
+    const space = document.getElementById
+  }
 
   makeMove(square) {}
 
