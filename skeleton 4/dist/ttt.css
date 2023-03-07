@@ -2,7 +2,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
-    width: 460px;
+    width: 500px;
 }
 
 li {
@@ -14,4 +14,8 @@ li {
 
 li:hover {
     background-color: yellow;
+}
+
+.clicked {
+    background-color: white;
 }
