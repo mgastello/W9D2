@@ -24,6 +24,7 @@ class View {
     if (e.target.classList.contains('unclicked')) {
       e.target.classList.remove('unclicked');
       e.target.classList.add('clicked');
+      
     }
   }
 
