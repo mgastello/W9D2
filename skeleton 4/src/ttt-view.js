@@ -1,14 +1,9 @@
 class View {
+
   constructor(game, el) {
     this.grid = this.setupBoard();
-    window.container.appendChild(this.grid);
-
-    this.grid.addEventListener('click', event => {
-      if (event.target.classList.contains('unclicked')) {
-        event.target.classList.remove('unclicked');
-        event.target.classList.add('clicked');
-      }
-    });
+    el.appendChild(this.grid);
+    this.bindEvents()
   }
 
   setupBoard() {
@@ -21,9 +16,16 @@ class View {
     return grid;
   }
   
-  bindEvents() {}
+  bindEvents() {
+    this.grid.addEventListener('click', this.handleClick);
+  }
 
-  handleClick(e) {}
+  handleClick(e) {
+    if (e.target.classList.contains('unclicked')) {
+      e.target.classList.remove('unclicked');
+      e.target.classList.add('clicked');
+    }
+  }
 
   makeMove(square) {}
 

@@ -11,14 +11,19 @@ li {
     border: 2px solid;
 }
 
-li:hover {
-    background-color: yellow;
-}
 
 .unclicked {
     background-color: gray;
 }
 
+.unclicked:hover {
+    background-color: yellow;
+}
+
 .clicked {
     background-color: white;
+}
+
+.clicked:hover {
+    background-color: blue;
 }

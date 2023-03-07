@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__ (/*! ./ttt-view.js */ \"./src/ttt-view.js\")\r\nconst Game = __webpack_require__ (/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")\r\n\r\nwindow.View = View\r\nwindow.Game = Game\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  window.container = document.getElementsByClassName('ttt')[0]\r\n});\n\n//# sourceURL=webpack://w9d2/./src/index.js?");
+eval("const View = __webpack_require__ (/*! ./ttt-view.js */ \"./src/ttt-view.js\")\r\nconst Game = __webpack_require__ (/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n  const container = document.getElementsByClassName('ttt')[0]\r\n  console.log(container)\r\n  const game = new Game()\r\n  const view = new View(game, container)\r\n});\n\n//# sourceURL=webpack://w9d2/./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__ (/*! ./ttt-view.js */ \"./src/ttt-view.js
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\r\n  constructor(game, el) {\r\n    this.grid = this.setupBoard();\r\n    window.container.appendChild(this.grid);\r\n\r\n    this.grid.addEventListener('click', event => {\r\n      if (event.target.classList.contains('unclicked')) {\r\n        event.target.classList.remove('unclicked');\r\n        event.target.classList.add('clicked');\r\n      }\r\n    });\r\n  }\r\n\r\n  setupBoard() {\r\n    const grid = document.createElement('ul');\r\n    for (let i = 0; i < 9; i++) {\r\n      let li = document.createElement('li');\r\n      li.classList.add('unclicked');\r\n      grid.appendChild(li);\r\n    }\r\n    return grid;\r\n  }\r\n  \r\n  bindEvents() {}\r\n\r\n  handleClick(e) {}\r\n\r\n  makeMove(square) {}\r\n\r\n}\r\n\r\nmodule.exports = View;\n\n//# sourceURL=webpack://w9d2/./src/ttt-view.js?");
+eval("class View {\r\n\r\n  constructor(game, el) {\r\n    this.grid = this.setupBoard();\r\n    el.appendChild(this.grid);\r\n    this.bindEvents()\r\n  }\r\n\r\n  setupBoard() {\r\n    const grid = document.createElement('ul');\r\n    for (let i = 0; i < 9; i++) {\r\n      let li = document.createElement('li');\r\n      li.classList.add('unclicked');\r\n      grid.appendChild(li);\r\n    }\r\n    return grid;\r\n  }\r\n  \r\n  bindEvents() {\r\n    this.grid.addEventListener('click', this.handleClick);\r\n  }\r\n\r\n  handleClick(e) {\r\n    if (e.target.classList.contains('unclicked')) {\r\n      e.target.classList.remove('unclicked');\r\n      e.target.classList.add('clicked');\r\n    }\r\n  }\r\n\r\n  makeMove(square) {}\r\n\r\n}\r\n\r\nmodule.exports = View;\n\n//# sourceURL=webpack://w9d2/./src/ttt-view.js?");
 
 /***/ }),
 
