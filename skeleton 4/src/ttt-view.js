@@ -20,20 +20,24 @@ class View {
   }
   
   bindEvents() {
-    this.grid.addEventListener('click', this.handleClick);
+    this.grid.addEventListener('click', this.handleClick.bind(this));
   }
 
   handleClick(e) {
-    if (e.target.classList.contains('unclicked')) {
-      e.target.classList.remove('unclicked');
-      e.target.classList.add('clicked');
-      this.makeMove(e.target)
+    if (!this.game.isOver()) {
+      if (e.target.classList.contains('unclicked')) {
+        e.target.classList.remove('unclicked');
+        e.target.classList.add('clicked');
+        this.makeMove(e.target)
+      }
     }
   }
 
   makeMove(square) {
+    square.append(this.game.currentPlayer)
     this.game.playMove([square.getAttribute('x'), square.getAttribute('y')])
   }
+  
 }
 
 module.exports = View;
